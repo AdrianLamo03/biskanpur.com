@@ -1,26 +1,60 @@
 @import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  scroll-behavior: smooth;
+}
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Quicksand", sans-serif;
+  
+  --color-brand-blue: #3b82f6;
+  --color-brand-yellow: #fbbf24;
+  --color-brand-pink: #d946ef;
+  --color-brand-green: #22c55e;
+  --color-background-warm: #fffdf7;
+
+  --radius-school: 24px;
+  --radius-school-lg: 32px;
+
+  /* --- BIS Brand Colors --- */
+  --color-bis-blue: #007bff;
+  --color-bis-red: #ee0a0a;
+  --color-bis-yellow: #fcc201;
+  --color-bis-marquee: #fce2c9;
+
+  /* --- Glassmorphism Properties --- */
+  /* This creates the frosted glass look */
+  --background-glass: rgba(255, 255, 255, 0.4);
+  --background-glass-scrolled: rgba(255, 255, 255, 0.8);
+
+  /* Borders for glass effect (thin and white) */
+  --border-glass: 1px solid rgba(255, 255, 255, 0.4);
+
+  /* --- Rounded Corners (Soft & Child Friendly) --- */
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 3rem;
+
+  /* --- Neo-Brutalism Shadows (For buttons/cards) --- */
+  --shadow-comic: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    /*@apply font-sans bg-background-warm text-stone-900;*/
+    background-color: #f8fafc;
+    color: #1e293b;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-display font-bold;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.blob {
+  border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+}
+
+.school-card {
+  @apply bg-white border-2 border-stone-100 rounded-school p-6 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/30;
 }
