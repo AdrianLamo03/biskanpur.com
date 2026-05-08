@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Notice {
+  id          String   @id @default(uuid())
+  title       String
+  date        String // e.g., "MAY 25"
+  type        String // e.g., "Holiday", "Event"
+  description String?
+  createdAt   DateTime @default(now())
+}
+
+model KeyDate {
+  id        String   @id @default(uuid())
+  title     String
+  date      String // e.g., "March 20, 2026"
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model Inquiry {
+  id        String   @id @default(uuid())
+  type      String // "ADMISSION" or "VACANCY"
+  name      String
+  phone     String
+  email     String?
+  grade     String?
+  position  String?
+  message   String
+  status    String   @default("PENDING")
+  createdAt DateTime @default(now())
+}
+
+model SiteSettings {
+  id           String @id @default("global")
+  campusStatus String @default("Open for Admission")
+  marqueeText  String @default("Welcome to Bright International School...")
+}
