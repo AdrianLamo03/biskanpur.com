@@ -98,7 +98,8 @@ export function Footer() {
                                 { name: 'About Us', href: '/#about' },
                                 { name: 'Academics', href: '/#academics' },
                                 { name: 'News & Events', href: '/#news' },
-                                { name: 'Contact Us', href: '/contact' }
+                                { name: 'Contact Us', href: '/contact' },
+                                { name: 'Admin Panel', href: '/login' }
                             ].map((item) => (
                                 <li key={item.name}>
                                     <Link
